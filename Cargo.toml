@@ -1,0 +1,6 @@
+[package]
+name = "mum"
+version = "0.0.0"
+authors = ["xushuai <dyxushuai@gmail.com>"]
+
+[dependencies]
