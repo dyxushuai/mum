@@ -2,5 +2,9 @@
 name = "mum"
 version = "0.0.0"
 authors = ["xushuai <dyxushuai@gmail.com>"]
+description = "etcd like distributed kv store"
+homepage = "https://github.com/dyxushuai/mum"
+repository = "https://github.com/dyxushuai/mum"
+license = "MIT/Apache-2.0"
 
 [dependencies]
