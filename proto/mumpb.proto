@@ -1,0 +1,46 @@
+syntax = "proto3";
+package mumpb;
+
+import "eraftpb.proto";
+
+service Mum {
+    rpc Op(OpRequest) returns (OpResponse) {}
+    rpc Conf(ConfRequest) returns (ConfResponse) {}
+    rpc Raft(RaftMessage) returns (Done) {}
+}
+
+message RaftMessage {
+    eraftpb.Message message = 1;
+}
+
+message Done {}
+
+enum Op {
+    Set = 0;
+    Get = 1;
+    Del = 2;
+    Scan = 3;
+}
+
+message OpRequest {
+    Op type = 1;
+    bytes key = 2;
+    bytes value = 3;
+    uint32 limit = 4;    
+}
+
+message KvPair {
+    bytes key = 1;
+    bytes value = 2;
+}
+
+message OpResponse {
+    repeated KvPair kvs = 1;
+}
+
+message ConfRequest {
+    eraftpb.ConfChange change = 1;
+}
+
+message ConfResponse {
+}

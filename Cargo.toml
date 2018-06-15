@@ -6,5 +6,33 @@ description = "etcd like distributed kv store"
 homepage = "https://github.com/dyxushuai/mum"
 repository = "https://github.com/dyxushuai/mum"
 license = "MIT/Apache-2.0"
+build = "build.rs"
 
 [dependencies]
+itertools = "^0.7.3"
+log = "^0.4.2"
+env_logger = "^0.5.10"
+serde = "^1.0.66"
+serde_derive = "^1.0.66"
+crc = "^1.8.1"
+failure = "^0.1.0"
+failure_derive = "^0.1.0"
+bincode = "^1.0.0"
+protobuf = "^2.0.2"
+futures = "^0.1.0"
+grpcio = "^0.3.0"
+raft = { git = "https://github.com/pingcap/raft-rs.git", tag = "v0.3.0" }
+fs2 = "^0.4.3"
+byteorder = "^1.2.3"
+lazy_static = "^0.2.1"
+indexmap = { version = "^1.0.1", features = ["serde-1"]}
+structopt = "^0.2"
+tokio = "^0.1.7"
+
+[dependencies.prometheus]
+version = "0.4"
+default-features = false
+features = ["nightly", "push", "process"]
+
+[build-dependencies]
+protoc-grpc = "^0.0.0"
